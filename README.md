@@ -10,7 +10,27 @@ This repository contains all the commands that would need to be run to re-do the
 5. Lab 8: Protein Domain Prediction
 
 # Finding Homologs with BLAST 
-This lab 
+This lab aimed to identify homologs of my gene family against known BLAST databases. Only high-scoring matches were needed, so the e-value was required to be less than 1e-30.
+
+To start the lab, create a new folder for the gene family:
+```
+mkdir ~/lab03-$MYGIT/NP_036387.2 
+```
+Once you created the folder, use the cd command to make sure it is there:
+```
+cd ~/lab03-$MYGIT/NP_036387.2
+```
+To make sure you are in the current folder, use the pwd command. 
+```
+pwd
+```
+To download the globin protein from Homo sapiens as query sequence:
+```
+ncbi-acc-download -F fasta -m protein "NP_036387.2" 
+```
+
+
+
 
 
 
