@@ -28,6 +28,27 @@ To download the globin protein from Homo sapiens as query sequence:
 ```
 ncbi-acc-download -F fasta -m protein "NP_036387.2" 
 ```
+Next, we need to perform a BLAST search using the query protein:
+```
+blastp -db ../allprotein.fas -query NP_036387.2.fa -outfmt 0 -max_hsps 1 -out globins.blastp.typical.out
+```
+To view the BLAST output file, use the less command.
+```
+less globins.blastp.typical.out
+```
+We can create the same analysis but with a more detailed and easier-to-process output by requesting for tabuluar output:
+```
+blastp -db ../allprotein.fas -query NP_036387.2.fa  -outfmt "6 sseqid pident length mismatch gapopen evalue bitscore pident stitle"  -max_hsps 1 -out globins.blastp.detail.out 
+```
+We can take a look at the output by using the less command again.
+```
+less -S globins.blastp.detail.out
+```
+Instead of counting by hand, we can compute the total human hits by using the grep command:
+```
+grep -c H.sapiens globins.blastp.detail.out
+```
+
 
 
 
