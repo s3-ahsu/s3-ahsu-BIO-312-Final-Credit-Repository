@@ -48,6 +48,23 @@ Instead of counting by hand, we can compute the total human hits by using the gr
 ```
 grep -c H.sapiens globins.blastp.detail.out
 ```
+Next, we would like to filter the BLAST output file for high-scoring homologs only. To do this, we need to set the e-value less than 1e-30. 
+```
+awk '{if ($6< 1e-30)print $1 }' globins.blastp.detail.out > globins.blastp.detail.filtered.out
+```
+To count the total number of hits in the BLAST results after the filter easier, we can use the wc command. 
+```
+wc -l globins.blastp.detail.filtered.out
+```
+Lastly, we want to find how many homologs are in each species.
+```
+grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
+```
+It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
+
+# Gene Family Sequence Alignment 
+
+
 
 
 
