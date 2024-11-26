@@ -12,6 +12,7 @@ This repository contains all the commands that would need to be run to re-do the
 # Finding Homologs with BLAST 
 This lab aimed to identify homologs of my gene family against known BLAST databases. Only high-scoring matches were needed, so the e-value was required to be less than 1e-30.
 
+
 To start the lab, create a new folder for the gene family:
 ```
 mkdir ~/lab03-$MYGIT/NP_036387.2 
@@ -64,6 +65,7 @@ It is desirable to work between 20 and 85 homologs. If it is not within that ran
 
 # Gene Family Sequence Alignment 
 In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and hmologous positions. 
+
 
 To start the lab, create a new folder for the gene family. 
 ```
@@ -123,6 +125,7 @@ alignbuddy -pi ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | awk ' (N
 # Gene Family Phylogeny using IQ-TREE
 This lab demonstrated how to construct a phylogenetic tree for the homologs we found from sequence data in lab 4. 
 
+
 To start the lab, create a new folder for the gene family. 
 ```
 mkdir ~/lab05-$MYGIT/NP_036387.2
@@ -141,6 +144,11 @@ We can find the maximum tree estimate. This calculates the optimal amino acid su
 iqtree -s ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.a
 l.fas -bb 1000 -nt 2
 ```
+To display the iqtree file that includes the ASCII graphics version of the tree, we can use the nw_display program. The .treefile is newick formatted. 
+```
+nw_display ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile
+```
+
 
 
 
