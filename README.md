@@ -95,7 +95,7 @@ We can look at the majority of the alignment using the alv command again.
 ```
 alv -kli --majority ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | less -RS
 ```
-We can also print the alignment to a large pdf file to see easier.
+We can also print the alignment to a large pdf file to see better.
 ```
 Rscript --vanilla ~/lab04-$MYGIT/plotMSA.R
 ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas
