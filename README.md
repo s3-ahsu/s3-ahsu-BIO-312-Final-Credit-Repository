@@ -64,7 +64,7 @@ grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
 It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
 
 # Gene Family Sequence Alignment 
-In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and hmologous positions. 
+In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and homologous positions. 
 
 
 To start the lab, create a new folder for the gene family. 
