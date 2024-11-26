@@ -1,4 +1,4 @@
-# BIO 312/Final Credit Repository-s3-ahsu
+# BIO 312 Final Credit Repository-s3-ahsu
 This repository contains all the commands that would need to be run to re-do the analysis for labs 3,4,5,6,and 8. 
 
 # Contents
