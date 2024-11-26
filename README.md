@@ -79,7 +79,7 @@ To make sure you are in the current folder, use the pwd command.
 ```
 pwd
 ```
- We want to obtain the sequences that are in the BLAST output file from last lab before we can align them:
+ We need to obtain the sequences that are in the BLAST output file from last lab before we can align them:
  ```
 seqkit grep --pattern-file~/lab03-$MYGIT/NP_036387.2/NP_036387.2.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
 ```
