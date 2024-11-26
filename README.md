@@ -83,7 +83,7 @@ pwd
  ```
 seqkit grep --pattern-file~/lab03-$MYGIT/NP_036387.2/NP_036387.2.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
 ```
-Next, we cna make a multiple sequence alignment using the muscle command.
+Next, we can make a multiple sequence alignment using the muscle command.
 ```
 muscle -align ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas -output ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas
 ```
