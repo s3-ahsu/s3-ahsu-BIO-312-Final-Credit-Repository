@@ -1,4 +1,4 @@
-# s3-ahsu-BIO-312-Final Credit Repository
+# BIO 312/Final Credit Repository-s3-ahsu
 This repository contains all the commands that would need to be run to re-do the analysis for labs 3,4,5,6,and 8. 
 
 # Contents
@@ -63,6 +63,67 @@ grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
 It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
 
 # Gene Family Sequence Alignment 
+In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and hmologous positions. 
+
+To start the lab, create a new folder for the gene family. 
+```
+mkdir ~/lab04-$MYGIT/NP_036387.2 
+```
+Once you created the folder, use the cd command to make sure it is there:
+```
+cd ~/lab04-$MYGIT/NP_036387.2 
+```
+To make sure you are in the current folder, use the pwd command. 
+```
+pwd
+```
+ We want to obtain the sequences that are in the BLAST output file from last lab before we can align them:
+ ```
+seqkit grep --pattern-file~/lab03-$MYGIT/NP_036387.2/NP_036387.2.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
+```
+Next, we cna make a multiple sequence alignment using the muscle command.
+```
+muscle -align ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas -output ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas
+```
+To view the alignment that was made, use the alv command.
+```
+alv -kli  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | less -RS 
+```
+We can look at the majority of the alignment using the alv command again.
+```
+alv -kli --majority ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | less -RS
+```
+We can also print the alignment to a large pdf file to see easier.
+```
+Rscript --vanilla ~/lab04-$MYGIT/plotMSA.R
+~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas
+```
+To calculate the width (length) of the alignment, alignbuddy can be used.
+```
+alignbuddy  -al  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas 
+```
+If we want to calculate the length of the alignment after removing any column with gaps, here is how to do it.
+```
+alignbuddy -trm all  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | alignbuddy  -al 
+```
+If we want to calculate the length of the alignment after removing invariant (completely conserved) positions, here is how to do it.
+```
+alignbuddy -dinv 'ambig' ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | alignbuddy  -al
+```
+One way to calculate average percent identity is by using t_coffee. 
+```
+t_coffee -other_pg seq_reformat -in ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas -output sim
+```
+Another way to calculate average percent identity is by using alignbuddy.
+```
+alignbuddy -pi ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | awk ' (NR>2)
+{ for (i=2;i<=NF  ;i++){ sum+=$i;num++} }
+     END{ print(100*sum/num) } '
+```
+
+
+
+
 
 
 
