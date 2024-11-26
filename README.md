@@ -16,7 +16,7 @@ To start the lab, create a new folder for the gene family:
 ```
 mkdir ~/lab03-$MYGIT/NP_036387.2 
 ```
-Once you created the folder, use the cd command to make sure it is there:
+Once you created the folder, use the cd command to go there:
 ```
 cd ~/lab03-$MYGIT/NP_036387.2
 ```
@@ -69,7 +69,7 @@ To start the lab, create a new folder for the gene family.
 ```
 mkdir ~/lab04-$MYGIT/NP_036387.2 
 ```
-Once you created the folder, use the cd command to make sure it is there:
+Once you created the folder, use the cd command to go there:
 ```
 cd ~/lab04-$MYGIT/NP_036387.2 
 ```
@@ -120,6 +120,28 @@ alignbuddy -pi ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | awk ' (N
 { for (i=2;i<=NF  ;i++){ sum+=$i;num++} }
      END{ print(100*sum/num) } '
 ```
+# Gene Family Phylogeny using IQ-TREE
+This lab demonstrated how to construct a phylogenetic tree for the homologs we found from sequence data in lab 4. 
+
+To start the lab, create a new folder for the gene family. 
+```
+mkdir ~/lab05-$MYGIT/NP_036387.2
+```
+Once you created the folder, use the cd command to go there:
+```
+cd ~/lab05-$MYGIT/NP_036387.2
+```
+We want to remove any sequences that contains a duplicate label tag and put a copy in lab 5 directory. 
+```
+sed 's/ /_/g'  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homolo
+gs.al.fas | seqkit grep -v -r -p "dupelabel" >  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas
+```
+We can find the maximum tree estimate. This calculates the optimal amino acid substitution model and amino acid frequencies. A tree search can also be performed that estimates the tree length.
+```
+iqtree -s ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.a
+l.fas -bb 1000 -nt 2
+```
+
 
 
 
