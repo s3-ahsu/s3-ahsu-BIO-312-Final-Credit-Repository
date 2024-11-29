@@ -6,7 +6,7 @@ This repository contains all the commands that would need to be run to re-do the
 1. Lab 3: Finding Homologs with BLAST  
 2. Lab 4: Gene Family Sequence Alignment 
 3. Lab 5: Gene Family Phylogeny using IQ-TREE 
-4. Lab 6: Gene-and-Species Tree Reconciliation
+4. Lab 6: Reconciliaing a Gene and Species Tree
 5. Lab 8: Protein Domain Prediction
 
 # Finding Homologs with BLAST 
@@ -62,6 +62,7 @@ Lastly, we want to find how many homologs are in each species.
 grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
 ```
 It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
+
 
 # Gene Family Sequence Alignment 
 In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and homologous positions. 
@@ -122,6 +123,7 @@ alignbuddy -pi ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.al.fas | awk ' (N
 { for (i=2;i<=NF  ;i++){ sum+=$i;num++} }
      END{ print(100*sum/num) } '
 ```
+
 # Gene Family Phylogeny using IQ-TREE
 This lab demonstrated how to construct a phylogenetic tree for the homologs we found from sequence data in lab 4. 
 
@@ -159,6 +161,18 @@ Next, we can use gotree to re-root the unrooted tree to midpoint tree rooting.
 gotree reroot midpoint -i ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile -o ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile
 ```
 
+# Reconciliaing a Gene and Species Tree
+This lab ulitized programs such as Notung to perform a gene tree-species tree reconciliation, in which duplication events and loss events will be estimated. In addition, we were able to determine orthologous and paralogous relationships. 
+
+To start the lab, create a new folder for the gene family:
+```
+mkdir ~/lab06-$MYGIT/NP_036387.2
+```
+Once you created the folder, use the cd command to go there:
+```
+cd ~/lab06-$MYGIT/NP_036387.2
+```
+To make a copy of 
 
 
 
