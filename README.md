@@ -161,7 +161,7 @@ Next, we can use gotree to re-root the unrooted tree to midpoint tree rooting.
 gotree reroot midpoint -i ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile -o ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile
 ```
 
-# Reconciliaing a Gene and Species Tree
+# Reconciling a Gene and Species Tree
 This lab ulitized programs such as Notung to perform a gene tree-species tree reconciliation, in which duplication events and loss events will be estimated. In addition, we were able to determine orthologous and paralogous relationships. 
 
 To start the lab, create a new folder for the gene family:
@@ -205,6 +205,26 @@ thirdkind -Iie -D 40 -f ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.
 Lastly, for better viewing, we can convert the graphic to a pdf. 
 ```
 convert  -density 150 ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.svg ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.pdf
+```
+
+# Protein Domain Prediction
+This lab focused on the identification of Pfam domains within the protein sequences with the usage of the RPS-BLAST application.
+
+First, make a new directory for the gene family sequences and change into that directory. 
+```
+mkdir ~/lab08-$MYGIT/NP_036387.2 && cd ~/lab08-$MYGIT/NP_036387.2
+```
+Then, make a copy of the raw unaligned sequence that removes any stop codons which are represented by asterisks. We will use the sed command to substitute these asterisks with nothing and direct the output to our gene family folder in lab 8. 
+```
+sed 's/*//' ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas > ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
+```
+We will now run rps blast by the commmand below:
+```
+rpsblast -query ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas -db ~/data/Pfam/Pfam -out ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out -outfmt "6 qseqid qlen qstart qend evalue stitle" -evalue .0000000001
+```
+To copy the final gene tree from Lab 5 to Lab 8, we use the cp command.
+```
+cp ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile ~/lab08-$MYGIT/NP_036387.2
 ```
 
 
