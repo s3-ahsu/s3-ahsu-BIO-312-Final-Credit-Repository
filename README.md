@@ -170,9 +170,43 @@ mkdir ~/lab06-$MYGIT/NP_036387.2
 ```
 Once you created the folder, use the cd command to go there:
 ```
-cd ~/lab06-$MYGIT/NP_036387.2
+cd ~/lab03-$MYGIT/NP_036387.2
 ```
-To make a copy of 
+Make a copy of the gene tree from lab 5 gene family folder into lab 6. 
+```
+cp ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile 
+~/lab06-$MYGIT/NP_036387.2/
+```
+To check if the gene tree is in the lab 6 folder, use ls.
+```
+ls ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile 
+/home/bio312-user/lab06-s3-ahsu/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile
+```
+Next, we need to reconcile the gene tree and species tree in notung. 
+```
+java -jar ~/tools/Notung-3.0_24-beta/Notung-3.0_24-beta.jar -s ~/lab05-$MYGIT/species.tre -g ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile --reconcile --speciestag prefix --savepng --events --outputdir ~/lab06-$MYGIT/NP_036387.2/
+```
+We can also use nw_display to provide names for internal lineages.
+```
+nw_display ~/lab05-$MYGIT/species.tre
+```
+As an alternative, we can see how notung assigned node names to the internal nodes.
+```
+grep NOTUNG-SPECIES-TREE ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.ntg | sed -e "s/^\[&&NOTUNG-SPECIES-TREE//" -e "s/\]/;/" | nw_display -
+```
+Next, we can generate a RECPhyloXML object and view the reconciliation via thirdkind.
+```
+ python2.7 ~/tools/recPhyloXML/python/NOTUNGtoRecPhyloXML.py -g ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.ntg --include.species
+```
+We can then create a graphic version of the reconciliation by using thirdkind.
+```
+thirdkind -Iie -D 40 -f ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.ntg.xml -o  ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.svg
+```
+Lastly, for better viewing, we can convert the graphic to a pdf. 
+```
+convert  -density 150 ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.svg ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.rec.pdf
+```
+
 
 
 
