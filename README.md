@@ -148,6 +148,16 @@ To display the iqtree file that includes the ASCII graphics version of the tree,
 ```
 nw_display ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile
 ```
+We can also look at the unrooted tree with a graphical display. To make it easier to read the genes, we can make the size of the text labels smaller and set the label lengths to 15.
+```
+Rscript --vanilla ~/lab05-$MYGIT/plotUnrooted.R  
+~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homol
+ogsf.al.fas.treefile ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile.pdf 0.4 15
+```
+Next, we can use gotree to re-root the unrooted tree to midpoint tree rooting. 
+```
+gotree reroot midpoint -i ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile -o ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile
+```
 
 
 
