@@ -226,6 +226,34 @@ To copy the final gene tree from Lab 5 to Lab 8, we use the cp command.
 ```
 cp ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile ~/lab08-$MYGIT/NP_036387.2
 ```
+We will run R script that plots the pfam domain predictions from rps-blast next to their protein on the phylogeny. Here's an easy way to do it from the command line without opening the console.
+```
+Rscript --vanilla ~/lab08-$MYGIT/plotTreeAndDomains.r ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.tree.rps.pdf
+```
+You should see the predicted domains on the tips of the tree and a legend with all the names of the domains. If some proteins are missing domains, then you may need to fix it manually. 
+
+We can use the mlr command to make better sense of the domains.
+```
+mlr --inidx --ifs "\t" --opprint cat ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | tail -n +2 | less -S
+```
+Instead of counting by hand, we can see how many proteins have no annotations using the command below:
+```
+cut -f 1 ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort | uniq -c
+```
+We can see which Pfam domain annotation is most commonly found by using the command below:
+```
+cut -f 6 ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort | uniq -c
+```
+Here's an easier way to see which protein has the longest annotated protein domain:
+```
+awk '{a=$4-$3;print $1,'\t',a;}' ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort -k2nr
+```
+We can also find the protein with a domain annotation that has the best e-value, which is the lowest one. 
+```
+cut -f 1,5 -d $'\t' ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out
+```
+
+
 
 
 
