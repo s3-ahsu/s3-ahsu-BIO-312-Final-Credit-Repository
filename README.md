@@ -258,7 +258,7 @@ Instead of counting by hand, we can see how many proteins have no annotations us
 ```
 cut -f 1 ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort | uniq -c
 ```
-We can see which Pfam domain annotation is most commonly found by using the command below:
+We can also see which Pfam domain annotation is most commonly found.
 ```
 cut -f 6 ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort | uniq -c
 ```
