@@ -226,13 +226,13 @@ convert  -density 150 ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.tr
 ```
 
 # Protein Domain Prediction
-This lab focused on the identification of Pfam domains within the protein sequences with the usage of the RPS-BLAST application.
+This lab focused on the identification of Pfam domains within the protein sequences by the using RPS-BLAST.
 
 First, make a new directory for the gene family sequences and change into that directory. 
 ```
 mkdir ~/lab08-$MYGIT/NP_036387.2 && cd ~/lab08-$MYGIT/NP_036387.2
 ```
-Then, make a copy of the raw unaligned sequence that removes any stop codons which are represented by asterisks. We will use the sed command to substitute these asterisks with nothing and direct the output to our gene family folder in lab 8. 
+Then, make a copy of the raw unaligned sequence that removes any stop codons (which are represented by asterisks). We will use the sed command to substitute these asterisks with nothing and direct the output to our gene family folder in lab 8. 
 ```
 sed 's/*//' ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas > ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
 ```
