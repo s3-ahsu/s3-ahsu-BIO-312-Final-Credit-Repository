@@ -266,7 +266,7 @@ Here's an easier way to see which protein has the longest annotated protein doma
 ```
 awk '{a=$4-$3;print $1,'\t',a;}' ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out | sort -k2nr
 ```
-We can also find the protein with a domain annotation that has the best e-value. Lower e-values indicates significant alignments, which suggest true evolutionary relationships rather than randomness or chance events.   
+We can also find the protein with a domain annotation that has the best e-value. Lower e-values indicates significant alignments, which suggest true evolutionary relationships rather than random or chance events.   
 ```
 cut -f 1,5 -d $'\t' ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out
 ```
