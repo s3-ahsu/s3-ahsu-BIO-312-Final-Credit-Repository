@@ -53,6 +53,20 @@ Lastly, we want to find how many homologs are in each species.
 ```
 grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
 ```
+| Species      |   Count   |
+|--------------|-----------|
+| C.carcharias |     2      |
+| C.mydas      |     2     |
+| D.rerio      |     2      |
+| E.caballus   |      2     |
+| F.catus      |      2     |
+| G.aculeatus  |      2     |
+| G.gallus     |      2     |
+| H.sapiens    |      2     |
+| S.salar      |      4    |
+| S.townsendi  |      2     |
+| X.laevis     |      4     |
+
 It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
 
 
