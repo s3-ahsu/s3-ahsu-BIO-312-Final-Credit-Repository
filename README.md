@@ -136,9 +136,32 @@ Rscript --vanilla ~/lab05-$MYGIT/plotUnrooted.R
 ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homol
 ogsf.al.fas.treefile ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile.pdf 0.4 15
 ```
-Next, we can use gotree to re-root the unrooted tree to midpoint tree rooting. 
+Next, we can use gotree to re-root the unrooted tree using midpoint tree rooting. 
 ```
 gotree reroot midpoint -i ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas.treefile -o ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile
+```
+We can now take a look at the new rooted tree at the command line.
+```
+nw_order -c n ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile  | nw_display -
+```
+However, for better visual purposes, we should make a graphic version of the tree. 
+```
+nw_order -c n ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile | nw_display -w 1000 -b 'opacity:0' -s  >  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.svg -
+```
+Even better, we can also convert the svg image to a pdf.  
+```
+convert  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homol
+ogsf.al.mid.treefile.svg  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.pdf
+```
+Most programs, including nw_display that we used, would display the tree as a phylogram. 
+```
+nw_order -c n ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile | nw_t
+opology - | nw_display -s  -w 1000 > ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.midCl.treefile.svg -
+```
+However, this isn't as convenient in cases where the branch lengths are very short, which makes it difficult to view the individual clades. Therefore, we can convert the phylogram to a cladogram for better visualization.
+```
+convert ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.midCl.treefile.svg ~/lab0
+5-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.midCl.treefile.pdf
 ```
 
 # Reconciling a Gene and Species Tree
