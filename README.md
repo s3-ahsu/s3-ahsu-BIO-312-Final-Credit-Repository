@@ -135,7 +135,7 @@ To start the lab, create a new folder for the gene family.
 ```
 mkdir ~/lab05-$MYGIT/NP_036387.2
 ```
-We want to remove any sequences that contains a duplicate label tag and put a copy in lab 5 directory. 
+We want to remove any sequences that contains a duplicate label tag and put a copy in the lab 5 directory. 
 ```
 sed 's/ /_/g'  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homolo
 gs.al.fas | seqkit grep -v -r -p "dupelabel" >  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.fas
@@ -172,7 +172,7 @@ Even better, we can also convert the svg image to a pdf.
 convert  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homol
 ogsf.al.mid.treefile.svg  ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile.pdf
 ```
-Most programs, including nw_display that we used, would display the tree as a phylogram. 
+Most programs, including the nw_display that we used, would display the tree as a phylogram. 
 ```
 nw_order -c n ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile | nw_t
 opology - | nw_display -s  -w 1000 > ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.midCl.treefile.svg -
