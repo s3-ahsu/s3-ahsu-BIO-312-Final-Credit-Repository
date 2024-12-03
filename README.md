@@ -10,7 +10,7 @@ This repository contains all the commands that would need to be run to re-do the
 5. Lab 8: Protein Domain Prediction
 
 # Finding Homologs with BLAST 
-This lab aimed to identify homologs of my gene family against known BLAST databases. Only high-scoring matches were needed, so the e-value was required to be less than 1e-30.
+This lab aimed to identify the homologs of my gene family against known BLAST databases. Only high-scoring matches were needed, so the e-value was required to be less than 1e-30.
 
 
 To start the lab, create a new folder for the gene family:
