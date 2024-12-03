@@ -76,7 +76,7 @@ Since my gene family had a total of 26 homologs, the threshold was not modified.
 
 
 # Gene Family Sequence Alignment 
-In this lab, we aligned the sequences that we obtained from last lab and uncover more information about them, including percent identity, length of the alignment, and homologous positions. 
+In this lab, we aligned the sequences that we obtained from last lab and discovered more information about them, including percent identity, length of the alignment, and homologous positions. 
 
 
 To start the lab, create a new folder for the gene family. 
