@@ -236,7 +236,7 @@ Then, make a copy of the raw unaligned sequence that removes any stop codons (wh
 ```
 sed 's/*//' ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas > ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
 ```
-We will now run rps blast by the commmand below:
+We will now run rps blast by the command below:
 ```
 rpsblast -query ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas -db ~/data/Pfam/Pfam -out ~/lab08-$MYGIT/NP_036387.2/NP_036387.2.rps-blast.out -outfmt "6 qseqid qlen qstart qend evalue stitle" -evalue .0000000001
 ```
