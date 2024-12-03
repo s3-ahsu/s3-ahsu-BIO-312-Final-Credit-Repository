@@ -45,9 +45,13 @@ Next, we would like to filter the BLAST output file for high-scoring homologs on
 ```
 awk '{if ($6< 1e-30)print $1 }' globins.blastp.detail.out > globins.blastp.detail.filtered.out
 ```
-To count the total number of hits in the BLAST results after the filter easier, we can use the wc command. 
+To count the total number of hits in the BLAST results after the filter, we can use the wc command. 
 ```
 wc -l globins.blastp.detail.filtered.out
+```
+We can also count the total number of hits before the filter.
+```
+wc -l globins.blastp.detail.out
 ```
 Lastly, we want to find how many homologs are in each species.
 ```
