@@ -6,7 +6,7 @@ This repository contains all the commands that would need to be run to re-do the
 1. Lab 3: Finding Homologs with BLAST  
 2. Lab 4: Gene Family Sequence Alignment 
 3. Lab 5: Gene Family Phylogeny using IQ-TREE 
-4. Lab 6: Reconciliaing a Gene and Species Tree
+4. Lab 6: Reconciling a Gene and Species Tree
 5. Lab 8: Protein Domain Prediction
 
 # Finding Homologs with BLAST 
