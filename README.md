@@ -17,14 +17,6 @@ To start the lab, create a new folder for the gene family:
 ```
 mkdir ~/lab03-$MYGIT/NP_036387.2 
 ```
-Once you created the folder, use the cd command to go there:
-```
-cd ~/lab03-$MYGIT/NP_036387.2
-```
-To make sure you are in the current folder, use the pwd command. 
-```
-pwd
-```
 To download the globin protein from Homo sapiens as query sequence:
 ```
 ncbi-acc-download -F fasta -m protein "NP_036387.2" 
@@ -72,16 +64,8 @@ To start the lab, create a new folder for the gene family.
 ```
 mkdir ~/lab04-$MYGIT/NP_036387.2 
 ```
-Once you created the folder, use the cd command to go there:
+We need to obtain the sequences that are in the BLAST output file from last lab before we can align them:
 ```
-cd ~/lab04-$MYGIT/NP_036387.2 
-```
-To make sure you are in the current folder, use the pwd command. 
-```
-pwd
-```
- We need to obtain the sequences that are in the BLAST output file from last lab before we can align them:
- ```
 seqkit grep --pattern-file~/lab03-$MYGIT/NP_036387.2/NP_036387.2.blastp.detail.filtered.out ~/lab03-$MYGIT/allprotein.fas | seqkit grep -v -p "carpio" > ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homologs.fas
 ```
 Next, we can make a multiple sequence alignment using the muscle command.
@@ -132,10 +116,6 @@ To start the lab, create a new folder for the gene family.
 ```
 mkdir ~/lab05-$MYGIT/NP_036387.2
 ```
-Once you created the folder, use the cd command to go there:
-```
-cd ~/lab05-$MYGIT/NP_036387.2
-```
 We want to remove any sequences that contains a duplicate label tag and put a copy in lab 5 directory. 
 ```
 sed 's/ /_/g'  ~/lab04-$MYGIT/NP_036387.2/NP_036387.2.homolo
@@ -167,10 +147,6 @@ This lab ulitized programs such as Notung to perform a gene tree-species tree re
 To start the lab, create a new folder for the gene family:
 ```
 mkdir ~/lab06-$MYGIT/NP_036387.2
-```
-Once you created the folder, use the cd command to go there:
-```
-cd ~/lab03-$MYGIT/NP_036387.2
 ```
 Make a copy of the gene tree from lab 5 gene family folder into lab 6. 
 ```
