@@ -29,7 +29,7 @@ To view the BLAST output file, use the less command.
 ```
 less globins.blastp.typical.out
 ```
-We can create the same analysis but with a more detailed and easier-to-process output by requesting for tabuluar output:
+We can create the same analysis but with a more detailed and easier-to-process output by requesting for tabular output:
 ```
 blastp -db ../allprotein.fas -query NP_036387.2.fa  -outfmt "6 sseqid pident length mismatch gapopen evalue bitscore pident stitle"  -max_hsps 1 -out globins.blastp.detail.out 
 ```
