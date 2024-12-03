@@ -226,7 +226,7 @@ convert  -density 150 ~/lab06-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.tr
 ```
 
 # Protein Domain Prediction
-This lab focused on the identification of Pfam domains within the protein sequences by the using RPS-BLAST.
+This lab focused on the identification of Pfam domains within the protein sequences by using RPS-BLAST.
 
 First, make a new directory for the gene family sequences and change into that directory. 
 ```
