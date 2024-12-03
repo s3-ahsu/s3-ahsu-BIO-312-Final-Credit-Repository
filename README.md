@@ -68,6 +68,7 @@ grep -o -E "^[A-Z]\.[a-z]+" globins.blastp.detail.filtered.out  | sort | uniq -c
 | X.laevis     |      4     |
 
 It is desirable to work between 20 and 85 homologs. If it is not within that range, you may need to change the e-value threshold that will either decrease or increase the number of hits. 
+Since my gene family had a total of 26 homologs, the threshold was not modified. 
 
 
 # Gene Family Sequence Alignment 
