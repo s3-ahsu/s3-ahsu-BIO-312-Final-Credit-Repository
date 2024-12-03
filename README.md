@@ -190,7 +190,7 @@ To start the lab, create a new folder for the gene family:
 ```
 mkdir ~/lab06-$MYGIT/NP_036387.2
 ```
-Make a copy of the gene tree from lab 5 gene family folder into lab 6. 
+Make a copy of the gene tree from the lab 5 gene family folder into lab 6. 
 ```
 cp ~/lab05-$MYGIT/NP_036387.2/NP_036387.2.homologsf.al.mid.treefile 
 ~/lab06-$MYGIT/NP_036387.2/
